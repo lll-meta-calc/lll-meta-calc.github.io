@@ -88,8 +88,56 @@ async function clickBTN(id) {
   } catch (err) {
     console.error('Failed to copy: ', err);
   } */
+
+  const backgroundImageUrl = 'data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAB4AAAAQ4AQMAAADSHVMAAAAABGdBTUEAALGPC/xhBQAAAAFzUkdCAK7OHOkAAAAGUExURYjO74nP8JCGMTwAAAABdFJOU/4a4wd9AAAED0lEQVR42u3PQQEAAAQEMA30L4uXFLc1WG2WKWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYeHccIj+8AGdv9tBJ8gkbAAAAABJRU5ErkJggg==';
+const generatedImageConatiner = document.querySelector('.generatedImage');
+
+const downloadImage = async (url) => {
+  return new Promise(resolve => {
+    const img = new Image();
+
+    img.src = url;
+    img.crossOrigin = "use-credentials";
+
+    img.onload = () => resolve(img);
+  })
+}
+
+const getRandomText = () => (Math.random() + 1).toString(36).substring(7);
+
+const getFakeData = async () => {
+  const text1 = getRandomText();
+  const text2 = getRandomText();
+  
+  return {text1, text2};
+}
+
+const generateImage = async () => {
+  const background = await downloadImage(backgroundImageUrl);
+  const data = await getFakeData();
+  const text = `${data.text1} ${data.text2}`.toUpperCase();
+  const canvas = document.createElement('canvas');
+
+  canvas.width = 700;
+  canvas.height = 400;
+  
+  const canvasMiddleX = canvas.width / 2;
+  const canvasMiddleY = canvas.height / 2;
+
+  const context = canvas.getContext('2d');
+
+  context.drawImage(background, 0, 0);
+  context.font = "40pt Calibri";
+  context.textAlign = "center";
+  context.fillText(text, canvasMiddleX, canvasMiddleY);
+
+  const generatedImageUrl = canvas.toDataURL();
+  const generatedImage = await downloadImage(generatedImageUrl);
+
+  generatedImageConatiner.append(generatedImage);
+
   try {
-    const response = await fetch('img/atk.png');
+    const response = await fetch(generatedImage);
     const blob = await response.blob();
     await navigator.clipboard.write([
       new ClipboardItem({
@@ -100,6 +148,13 @@ async function clickBTN(id) {
   } catch (err) {
     console.error(err.name, err.message);
   }
+}
+
+generateImage();
+
+
+  
+  
 }
 
 /*const SPEED_BUSTER_PRICE = 730;
