@@ -1,6 +1,10 @@
-*{
-    
-    font-family: "PT Sans", "Arial", sans-serif;
+@font-face {
+    font-family: 'Inter123';
+    src: url('Inter123.ttf');
+}
+
+*{  
+    font-family: "PT Sans", "Inter123", sans-serif;
 }
 
 input {width: 30px;
@@ -42,7 +46,7 @@ body {
     display: flex;
     background-color: #282828;
     justify-content: center;    
-    margin-top: 7%;
+    margin-top: 6%;
     /* align-items: center; */
 }
 
@@ -144,7 +148,7 @@ div.cart-head {
 }
 
 h1#stim,h1#pill,h1#leech,h1#atk,h1#def,h1#energ {
-    font-size: 15px;
+    font-size: 14px;
 }
 
 img.cart-icon {
@@ -187,11 +191,3 @@ div.test3 {
     height: 55px;
     font-weight: bold;
 }
-
-.generatedImage {
-    display:none;
-  }
-  
-  .generatedImage img {
-    display:none;
-  }
