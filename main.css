@@ -1,0 +1,189 @@
+*{
+    
+    font-family: "PT Sans", "Arial", sans-serif;
+}
+
+input {width: 30px;
+    height: 30px;
+    border: none;
+    background-color: #444;
+    border-radius: 5px;
+    text-align: center;
+}
+input, textarea, input::placeholder, input::selection, div#leechPCartFP, div#atkPCartFP, div#defPCartFP, div#energPCartFP, div#pillPCartFP, div#stimPCartFP {
+    color: white;
+}
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+    display: none; 
+    margin: 0;
+}
+
+div#pillPFP, div#pillPQ, div#pillPP,
+div#stimPFP, div#stimPQ, div#stimPP,
+div#atkPFP, div#atkPQ, div#atkPP,
+div#defPFP, div#defPQ, div#defPP,
+div#leechPFP, div#leechPQ, div#leechPP,
+div#energPFP, div#energPQ, div#energPP,
+div#finalPrice {
+    margin-top: 0px;
+    margin-bottom: 0;
+    margin-left: 10px;
+    margin-right: 5px;
+    color:white
+}
+
+div.price {
+    color: white;
+    display: flex;
+}
+
+body {
+    display: flex;
+    background-color: #282828;
+    justify-content: center;    
+    margin-top: 7%;
+    /* align-items: center; */
+}
+
+div.store {
+    display: flex;    
+    flex-wrap: wrap;    
+    width: 447px;   
+    height: 673px; 
+}
+
+div.prod {
+    display: flex;
+    flex-wrap: nowrap;
+    flex-direction: column;
+    justify-content: space-between;
+    background-color: #1D1D1D;
+    border-radius: 12px;
+    width: 218px;
+    height: 218px;
+    margin-left: 5px;
+    margin-bottom: 5px;
+}
+
+div.prod-text {
+    margin-left: 10px;
+    margin-bottom: 4px;
+}
+
+
+div.cart {
+    margin-left: 20px;
+}
+
+img {
+    margin-top: 5px;
+}
+
+img.img {
+    width: 100px;
+    margin-left: -4px;
+}
+img.icon {
+    width: 60px;
+    margin-left: 7px;
+}
+
+div.price {
+    color: #676767;
+}
+
+div.cart {
+    width: 230px;
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+h1 {
+    color: white;
+    font-weight: bold;
+    font-size: 27px;
+}
+
+div.finalPrice {
+    display: flex;
+    color: #676767;
+    font-weight: bold;
+    font-size: 27px;
+}
+
+div.cart-items {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: nowrap;    
+    justify-content: space-between;
+    height: 455px;
+}
+
+div.cart-item {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    background-color: #1D1D1D;
+    border-radius: 12px;
+    height: 60px;
+}
+
+div.cart-text {
+    color: #444;
+    display: flex;
+    justify-content:space-around;
+    width: 100%;
+}
+
+div.cart-head {
+    display: flex;
+    margin-left: 10px;    
+}
+
+h1#stim,h1#pill,h1#leech,h1#atk,h1#def,h1#energ {
+    font-size: 15px;
+}
+
+img.cart-icon {
+    width: 20px;
+    height: 23px;
+    margin-left: 10px;
+    margin-top: -2px;
+}
+
+div.priceCart {
+    display: flex;
+    color: white;
+}
+
+div.test {
+    display: flex;
+    justify-content: space-around;
+}
+
+div.test1 {
+    display: flex;
+    justify-content: space-between;
+    color: white;
+}
+
+div.test2 {
+    margin-right: 4px;
+}
+div.test3 {
+    margin-left: 4px;
+}
+
+#fin {
+    background-color: #1D1D1D;
+    color: white;
+    border-radius: 12px;
+    border-width: 2px;
+    border-color: green;
+    border-style: solid;
+    height: 55px;
+    font-weight: bold;
+}
