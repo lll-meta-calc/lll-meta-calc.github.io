@@ -83,78 +83,11 @@ function priceCalc(eachPrice, quantity, paragQ, paragCartQ, paragP, paragCartP, 
 }
 
 async function clickBTN(id) {
-/*  try {
+   try {
     await navigator.clipboard.writeText(`${document.getElementsByClassName(`stim123N`).stim.textContent} x${document.getElementsByClassName(`stim123Q`).stimPCartQ.textContent}\n${document.getElementsByClassName(`pill123N`).pill.textContent} x${document.getElementsByClassName(`pill123Q`).pillPCartQ.textContent}\n${document.getElementsByClassName(`atk123N`).atk.textContent} x${document.getElementsByClassName(`atk123Q`).atkPCartQ.textContent}\n${document.getElementsByClassName(`energ123N`).energ.textContent} x${document.getElementsByClassName(`energ123Q`).energPCartQ.textContent}\n${document.getElementsByClassName(`def123N`).def.textContent} x${document.getElementsByClassName(`def123Q`).defPCartQ.textContent}\n${document.getElementsByClassName(`leech123N`).leech.textContent} x${document.getElementsByClassName(`leech123Q`).leechPCartQ.textContent}\n\nВсего на: ${document.getElementsByClassName(`finalPrice123`).finalPrice.textContent}$`);
   } catch (err) {
     console.error('Failed to copy: ', err);
-  } */
-
-  const backgroundImageUrl = 'data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAB4AAAAQ4AQMAAADSHVMAAAAABGdBTUEAALGPC/xhBQAAAAFzUkdCAK7OHOkAAAAGUExURYjO74nP8JCGMTwAAAABdFJOU/4a4wd9AAAED0lEQVR42u3PQQEAAAQEMA30L4uXFLc1WG2WKWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYeHccIj+8AGdv9tBJ8gkbAAAAABJRU5ErkJggg==';
-const generatedImageConatiner = document.querySelector('.generatedImage');
-
-const downloadImage = async (url) => {
-  return new Promise(resolve => {
-    const img = new Image();
-
-    img.src = url;
-    img.crossOrigin = "use-credentials";
-
-    img.onload = () => resolve(img);
-  })
-}
-
-const getRandomText = () => (Math.random() + 1).toString(36).substring(7);
-
-const getFakeData = async () => {
-  const text1 = getRandomText();
-  const text2 = getRandomText();
-  
-  return {text1, text2};
-}
-
-const generateImage = async () => {
-  const background = await downloadImage(backgroundImageUrl);
-  const data = await getFakeData();
-  const text = `${data.text1} ${data.text2}`.toUpperCase();
-  const canvas = document.createElement('canvas');
-
-  canvas.width = 700;
-  canvas.height = 400;
-  
-  const canvasMiddleX = canvas.width / 2;
-  const canvasMiddleY = canvas.height / 2;
-
-  const context = canvas.getContext('2d');
-
-  context.drawImage(background, 0, 0);
-  context.font = "40pt Calibri";
-  context.textAlign = "center";
-  context.fillText(text, canvasMiddleX, canvasMiddleY);
-
-  const generatedImageUrl = canvas.toDataURL();
-  const generatedImage = await downloadImage(generatedImageUrl);
-
-  generatedImageConatiner.append(generatedImage);
-
-  try {
-    const response = await fetch(generatedImage);
-    const blob = await response.blob();
-    await navigator.clipboard.write([
-      new ClipboardItem({
-        [blob.type]: blob
-      })
-    ]);
-    console.log('Image copied.');
-  } catch (err) {
-    console.error(err.name, err.message);
-  }
-}
-
-generateImage();
-
-
-  
-  
+  } 
 }
 
 /*const SPEED_BUSTER_PRICE = 730;
