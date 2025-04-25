@@ -189,10 +189,9 @@ div.test3 {
 }
 
 .generatedImage {
-    width: 700px;
-    height: 400px;
+    display:none;
   }
   
   .generatedImage img {
-    width: 100%;
+    display:none;
   }
