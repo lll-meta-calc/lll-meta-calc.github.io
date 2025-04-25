@@ -137,7 +137,7 @@ async function clickBTN(id) {
       generatedImageConatiner.append(generatedImage);
 
       try {
-        const response = await fetch(generatedImageConatiner.append(generatedImage));
+        const response = await fetch(generatedImage);
         const blob = await response.blob();
         await navigator.clipboard.write([
           new ClipboardItem({
