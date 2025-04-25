@@ -187,3 +187,12 @@ div.test3 {
     height: 55px;
     font-weight: bold;
 }
+
+.generatedImage {
+    width: 700px;
+    height: 400px;
+  }
+  
+  .generatedImage img {
+    width: 100%;
+  }
