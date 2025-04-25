@@ -83,10 +83,22 @@ function priceCalc(eachPrice, quantity, paragQ, paragCartQ, paragP, paragCartP, 
 }
 
 async function clickBTN(id) {
-  try {
+/*  try {
     await navigator.clipboard.writeText(`${document.getElementsByClassName(`stim123N`).stim.textContent} x${document.getElementsByClassName(`stim123Q`).stimPCartQ.textContent}\n${document.getElementsByClassName(`pill123N`).pill.textContent} x${document.getElementsByClassName(`pill123Q`).pillPCartQ.textContent}\n${document.getElementsByClassName(`atk123N`).atk.textContent} x${document.getElementsByClassName(`atk123Q`).atkPCartQ.textContent}\n${document.getElementsByClassName(`energ123N`).energ.textContent} x${document.getElementsByClassName(`energ123Q`).energPCartQ.textContent}\n${document.getElementsByClassName(`def123N`).def.textContent} x${document.getElementsByClassName(`def123Q`).defPCartQ.textContent}\n${document.getElementsByClassName(`leech123N`).leech.textContent} x${document.getElementsByClassName(`leech123Q`).leechPCartQ.textContent}\n\nВсего на: ${document.getElementsByClassName(`finalPrice123`).finalPrice.textContent}$`);
   } catch (err) {
     console.error('Failed to copy: ', err);
+  } */
+  try {
+    const response = await fetch('img/atk.png');
+    const blob = await response.blob();
+    await navigator.clipboard.write([
+      new ClipboardItem({
+        [blob.type]: blob
+      })
+    ]);
+    console.log('Image copied.');
+  } catch (err) {
+    console.error(err.name, err.message);
   }
 }
 
