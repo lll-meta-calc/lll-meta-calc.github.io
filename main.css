@@ -7,12 +7,13 @@
     font-family: "PT Sans", "Inter123", sans-serif;
 }
 
-input {width: 30px;
-    height: 30px;
+input {width: 38px;
+    height: 28px;
     border: none;
     background-color: #444;
     border-radius: 5px;
     text-align: center;
+    margin-left: 5px;
 }
 input, textarea, input::placeholder, input::selection, div#leechPCartFP, div#atkPCartFP, div#defPCartFP, div#energPCartFP, div#pillPCartFP, div#stimPCartFP {
     color: white;
@@ -40,6 +41,8 @@ div#finalPrice {
 div.price {
     color: white;
     display: flex;
+    align-items: center;
+    height: 30px;
 }
 
 body {
@@ -98,7 +101,7 @@ div.price {
 }
 
 div.cart {
-    width: 230px;
+    width: 240px;
     display: flex;
     flex-wrap: wrap;
     flex-direction: column;
@@ -190,4 +193,87 @@ div.test3 {
     border-style: solid;
     height: 55px;
     font-weight: bold;
+}
+
+div#stim-info, div#pill-info, div#speed-info, div#def-info, div#atk-info, div#leech-info  {
+    display: none;
+    color:white;
+    text-align: center;
+}
+
+div.stim-info>h1, div.pill-info>h1, div.speed-info>h1, div.def-info>h1, div.atk-info>h1, div.leech-info>h1 {
+    margin-bottom: 5px;
+    padding-top: 5px;
+    font-size: 17px;
+    height: 35px;
+    width: 250px;
+    background-color: #1D1D1D;
+    margin: 0;    
+    border-top-left-radius: 9px;
+    border-top-right-radius: 9px;    
+    border: #aaa solid;
+    border-bottom: none;
+    border-width: 2px;
+}
+
+div.stim-info>p, div.pill-info>p, div.speed-info>p, div.def-info>p, div.atk-info>p, div.leech-info>p {
+    height: 70px;
+    width: 250px;
+    background-color: #1D1D1D;
+    border-bottom-left-radius: 9px;
+    border-bottom-right-radius: 9px;    
+    border: #aaa solid;
+    border-top: none;
+    border-width: 2px;
+}
+
+div.pill-info>p {
+    height: 50px;
+}
+
+div.stim-info {
+    position: relative;
+    top: -94px;
+    right: 260px;
+    height: 0;    
+}
+div.pill-info {
+    position: relative;
+    top: -100px;
+    left: 227px;
+    height: 0;    
+}
+div.speed-info {
+    position: relative;
+    top: -121px;
+    left: 227px;
+    height: 0;    
+}
+div.def-info {
+    position: relative;
+    top: -121px;
+    right: 260px;
+    height: 0;    
+}
+div.atk-info {
+    position: relative;
+    top: -121px;
+    right: 260px;
+    height: 0;    
+}
+div.leech-info {
+    position: relative;
+    top: -121px;
+    left: 227px;
+    height: 0;    
+}
+
+
+
+
+
+
+
+div#leechPQ, div#defPQ, div#atkPQ, div#energPQ, div#pillPQ, div#stimPQ {
+    display: none;
 }

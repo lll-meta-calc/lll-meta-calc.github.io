@@ -178,6 +178,17 @@ async function clickBTN() {
     
 }
 
+
+function showInfo(id) {
+  const info = document.getElementById(id)
+  info.setAttribute('style', 'display: block')
+}
+
+function hideInfo(id) {
+  const info = document.getElementById(id)
+  info.setAttribute('style', 'display: none')
+}
+
 /*const SPEED_BUSTER_PRICE = 730;
 const OTHER_BUSTER_PRICE = 950;
 const PILLS_PRICE = 450;
